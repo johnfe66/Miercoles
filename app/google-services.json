@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "829021481307",
+    "firebase_url": "https://miercoles-87b09.firebaseio.com",
+    "project_id": "miercoles-87b09",
+    "storage_bucket": "miercoles-87b09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829021481307:android:80cc19cac9776416",
+        "android_client_info": {
+          "package_name": "com.johnfe.miercoles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829021481307-tcoafbdclrb22jc6p9rbiidi47ku92cl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.johnfe.miercoles",
+            "certificate_hash": "E755F44AF3D823BAE2C0EDC3E5A45973D5D07CFC"
+          }
+        },
+        {
+          "client_id": "829021481307-2sp6b8g7s7iraq9bvdspv7gttdroa0s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_5zCQ_SumX4eMuFk595JEkANNd6L2u0w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829021481307-2sp6b8g7s7iraq9bvdspv7gttdroa0s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
