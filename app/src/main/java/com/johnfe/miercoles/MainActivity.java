@@ -79,15 +79,25 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this, "Registro Exitoso ",
                                             Toast.LENGTH_SHORT).show();
                                     mAuth.getCurrentUser().sendEmailVerification()
-                                    .addOnFailureListener(MainActivity.this, new OnFailureListener() {
+                                    .addOnCompleteListener(MainActivity.this, new OnCompleteListener<Void>() {
                                         @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            System.out.println(e);
-                                            Toast.makeText(MainActivity.this, "Error en Enviar Email. "+e.getMessage(),
-                                                    Toast.LENGTH_SHORT).show();
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(!task.isSuccessful()){
+                                                Toast.makeText(MainActivity.this, "Error al enviar email. "+task.getException().getMessage(),
+                                                        Toast.LENGTH_SHORT).show();
+                                                System.out.println(task.getException().getMessage());
+                                            }else{
 
+                                                Toast.makeText(MainActivity.this, "debe validar su email",
+                                                        Toast.LENGTH_SHORT).show();
+
+                                            }
                                         }
                                     });
+
+                                    txtEmail.setText("");
+                                    txtPassword.setText("");
+
                                 }
 
                                 // ...
@@ -118,12 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     if(mAuth.getCurrentUser().isEmailVerified()){
 
-                                        UserProfileChangeRequest usuario = new UserProfileChangeRequest.Builder()
-                                                .setDisplayName("pepito perez")
-                                                .setPhotoUri(Uri.parse("https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/30382_10151143006550458_1277185577_n.jpg?oh=75fd5ad8033c23b7deb3f30fbec965c1&oe=58CC7890&__gda__=1490377027_e3d19a221bbcaded909296e7fab737fe"))
-                                                .build();
-
-                                        mAuth.getCurrentUser().updateProfile(usuario);
+                                        /**/
                                         Intent intent = new Intent(MainActivity.this, Home.class);
                                         startActivity(intent);
                                     }else{

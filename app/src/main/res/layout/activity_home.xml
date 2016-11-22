@@ -10,39 +10,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.johnfe.miercoles.Home">
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
-        android:id="@+id/tvBienvenido" />
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1"
+        android:layout_alignParentTop="true">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBienvenido"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:id="@+id/tvTiempoReal" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/tvTiempoReal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:id="@+id/etMensaje"
-        android:hint="Mensaje" />
-
-    <Button
-        android:text="Enviar a FireBase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etMensaje"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:id="@+id/btnEnviar" />
+        <Button
+            android:text="Datos Personales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnDatos"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="0.03" />
+    </LinearLayout>
 </RelativeLayout>

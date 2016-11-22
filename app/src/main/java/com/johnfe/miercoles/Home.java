@@ -1,5 +1,6 @@
 package com.johnfe.miercoles;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,54 +19,53 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Home extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    TextView tvBienvenido;
-    TextView tvMensaje;
-    Button btnEnviar;
-    EditText txtMensaje;
-    FirebaseDatabase database;
-    DatabaseReference referenciaClave;
-
+    Button btnDatos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        tvBienvenido= (TextView) findViewById(R.id.tvBienvenido);
-        tvMensaje= (TextView) findViewById(R.id.tvTiempoReal);
-        btnEnviar= (Button) findViewById(R.id.btnEnviar);
-        txtMensaje= (EditText) findViewById(R.id.etMensaje);
+        btnDatos= (Button) findViewById(R.id.btnDatos);
+        btnDatos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Home.this,DatosUsuario.class);
+                startActivity(intent);
+            }
+        });
 
 
-        mAuth = FirebaseAuth.getInstance();
+       // mAuth = FirebaseAuth.getInstance();
 
+/*
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Log.d("MainAcitvity", "onAuthStateChanged:signed_in:" + user.getUid());
+                    Log.d("home", "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
-                    Log.d("MainActivity", "onAuthStateChanged:signed_out");
+                    Log.d("home", "onAuthStateChanged:signed_out");
                 }
             }
         };
-
-        tvBienvenido.setText("Bienvenido : "+mAuth.getCurrentUser().getDisplayName());
-
-        database= FirebaseDatabase.getInstance();
-        referenciaClave = database.getReference("miercoles");
+*/
 
 
-        referenciaClave.setValue("Clase Miercoles");
-        MyFirebaseInstanceIDService instanceIDService = new MyFirebaseInstanceIDService();
-        instanceIDService.onTokenRefresh();
+       // database= FirebaseDatabase.getInstance();
+       // referenciaClave = database.getReference("miercoles");
+
+
+      //  referenciaClave.setValue("Clase Miercoles");
+//        System.out.println("Token");
+//        MyFirebaseInstanceIDService instanceIDService = new MyFirebaseInstanceIDService();
+//        instanceIDService.onTokenRefresh();
+//        System.out.println("fin del token");
 
         // Read from the database
-        referenciaClave.addValueEventListener(new ValueEventListener() {
+   /*     referenciaClave.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -89,7 +89,7 @@ public class Home extends AppCompatActivity {
 
             }
         });
-
+*/
 
 
     }
